@@ -8,7 +8,7 @@ $("#addPole").on("click" ,function(){input =1;
 $(document).on('click','#addPole',function(e){
     // $("#uCircle").addClass("active")
     countP= countP+1;
-    $(".x").after(        '<div class='+'"hidden pole '+ 'x'+countP+'">x</div>'    )
+    $(".x").after(        '<div class='+'"allPoles hidden pole '+ 'x'+countP+'">x</div>'    )
     last_div = (".x"+countP+"")
     console.log("before" + countP)
     
@@ -29,6 +29,22 @@ $(document).on('click','#addPole',function(e){
             $(".hiddenPx"+countP+"").val(p.pageX);
             $(".hiddenPy"+countP+"").val(p.pageY);
             console.log("#hiddenPx"+countP+"")
+            allPoles = $( ".allPoles" ).length;
+            // console.log(countP)
+            // for (i = 1; i < CountP+1; i++) {
+            //     $('.x'+i+'').click(function(){
+            //         console.log(22)
+            //         $(this).remove()
+            //         countP =countP -1;
+            //     });
+            // }
+            $( ".allPoles" ).each(function() {
+                $(this).on("click", function(){
+                    console.log(22)
+                    $(this).remove()
+                    countP =countP -1;
+                });
+            });
             }   
         });
 });
@@ -40,7 +56,7 @@ $(document).on('click','#addZero',function(e){
 // $("#addZero").click(function(e){
     // $("#uCircle").addClass("active")
     countZ= countZ+1;
-    $(".circle").after(        '<div class='+'"hidden cir '+ 'circle'+countZ+'"></div>'    )
+    $(".circle").after(        '<div class='+'"allZeros hidden cir '+ 'circle'+countZ+'"></div>'    )
     console.log("before" + countZ)
     last_div = (".circle"+countZ+"")
         $(document).on('click','#uCircle',function(z){
@@ -60,7 +76,23 @@ $(document).on('click','#addZero',function(e){
             $(".hiddenZx"+countZ).val(z.pageX);
             $(".hiddenZy"+countZ).val(z.pageY);
             console.log("after" + countZ)
-            }
+            allZeros = $( ".allZeros" ).length;
+            // console.log(allZeros)
+            // for (i = 1; i < CountZ+1; i++) {
+            //     $('.circle'+i+'').click(function(){
+            //         console.log(23)
+            //         $(this).remove()
+            //         CountZ =CountZ -1;
+            //     });
+            // }
+            $( ".allZeros" ).each(function() {
+                $(this).on("click", function(){
+                    console.log(23)
+                    $(this).remove()
+                    countZ =countZ -1;
+                });
+            });
+            }   
 
         });
 });
@@ -68,68 +100,62 @@ $("form").submit(function(e){
     $("#hidden_countZ").val(countZ);
     $("#hidden_countP").val(countP);
 });
-//$("#hiddenx2").val(e.pageX);
-//     //             $("#hiddeny2").val(e.pageY);
-    // for (var i = 0 ;i <countZ ; i++)
-    // {
-    //     console.log("hossam")
-    //     $(".circle"+i+"").css("display", "block").offset({  //offset bt77dle el div hyzhr fen
-    //         left: e.pageX  ,
-    //         top: e.pageY 
-    //     });
-    //     $("#hiddenZx").after('<input id='+"hiddenZx"+i+' " type="text" value="0" name='+"locZx"+i+'>')
-    //     $("#hiddenZy").after('<input id='+"hiddenZy"+i+' " type="text" value="0" name='+"locZx"+i+'>')
-    //     $("#hiddenZx"+i+"").val(e.pageX);
-    //     $("#hiddenZy"+i+"").val(e.pageY);
-    //     // console.log(input)
-    //     console.log("pagex is: "+ e.pageX + " & pageY is: " + e.pageY)
-    // }
-// $(document).on('change','#pole_zero',function(){
-//     var input = $("#pole_zero").val(); 
-//     console.log(input);
-//     $("#uCircle").click(function(e){
-//         console.log("count poles" +countP);
-//         console.log("count zeros" +countZ);
-//         if (input == "zero")
-//         {
-//             console.log("hey")
-//             for (var i = 0 ;i <countZ ; i++){
-//                 console.log("hossam")
-//                 $(".circle"+i+"").css("display", "block").offset({  //offset bt77dle el div hyzhr fen
-//                     left: e.pageX  ,
-//                     top: e.pageY 
-//                 });
-//                 $("#hiddenZx").after('<input id='+"hiddenZx"+i+' " type="text" value="0" name='+"locZx"+i+'>')
-//                 $("#hiddenZy").after('<input id='+"hiddenZy"+i+' " type="text" value="0" name='+"locZx"+i+'>')
-//                 $("#hiddenZx"+i+"").val(e.pageX);
-//                 $("#hiddenZy"+i+"").val(e.pageY);
-//                 console.log(input)
-//                 console.log("pagex is: "+ e.pageX + " & pageY is: " + e.pageY)
-//             }
-            
-//         }else if (input == "pole")
-//         {   
-//             console.log("hey2")
-//             for (var i = 0 ; i< $("#hiddenPole").val() ; i++)
-//             {
-//                 console.log("ahmed")
-//                 $(".x" + i).css("display", "block").offset({  //offset bt77dle el div hyzhr fen
-//                     left: e.pageX,
-//                     top: e.pageY-30 
-//                 });
-//                 $("#hiddenPx").val(e.pageX);
-//                 $("#hiddenPy").val(e.pageY);
-//             }
-//         }
-//         else{
-//             $(".circle").fadeIn(1000).offset({  //offset bt77dle el div hyzhr fen
-//                 left: e.pageX  ,
-//                 top: e.pageY 
-//             });
-//             $("#hiddenZx").val(e.pageX);
-//             $("#hiddenZy").val(e.pageY);
-//             console.log(input)
-//             console.log("pagex is: "+ e.pageX + " & pageY is: " + e.pageY)
-//         }
+// all_zeros = $(".allZeros")
+// $("#deleteZeros").on("click" ,function(){
+//     $(all_zeros).unbind()
+// });
+// $("html").click(function(){
+//     allPoles = $( ".allPoles" ).length;
+//     allZeros = $( ".allZeros" ).length;
+// });
+
+$(document).on('click','#deleteZeros',function(e){
+    console.log("delete_zeros")
+    console.log(allPoles)
+    console.log(allZeros)
+    $( ".allZeros" ).remove();
+    countZ = 0;
+}); 
+$(document).on('click','#deletePoles',function(e){
+    console.log("delete_Poles")
+    $( ".allPoles" ).remove();
+    countP = 0;
+});   
+$(document).on('click','#deleteAll',function(e){
+    console.log("delete_all")
+    $( ".allPoles" ).remove();
+    $( ".allZeros" ).remove();
+    countP = 0; 
+    countZ = 0;
+});
+// for (i = 1; i < CountP+1; i++) {
+//     $('.x'+i+'').click(function(){
+//         console.log(22)
+//         $(this).remove()
+//         countP = countP-1;
 //     });
-// });  
+// }
+// allZeros = $( ".allZeros" ).length;
+// for (i = 1; i < CountZ+1; i++) {
+//     $('.circle'+i+'').click(function(){
+//         console.log(23)
+//         $(this).remove()
+//         countZ = countZ-1;
+//     });
+// }
+// allPoles = $(".allPoles")
+// allZeros = $(".allZeros")
+// console.log(allPoles)
+// console.log(allPoles)
+
+// for (i = 0; i < allPoles; i++) {
+//     $(document).on('click','".x"'+i+'""',function(e){
+//         $(this).remove()
+//     });
+// }
+// for (i = 0; i < allZeros; i++) {
+//     $(document).on('click','".circle"'+countZ+'""',function(e){
+//         $(this).remove()
+//     });
+// }
+// allPoles = $( ".allPoles" ).length;

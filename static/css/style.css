@@ -40,6 +40,9 @@ h1{
     margin-left: 470px;
     margin-bottom: 50px;
 }
+.allPoles,.allZeros{
+    cursor: pointer;
+}
 /* .hidden{
     display: none;
 } */
