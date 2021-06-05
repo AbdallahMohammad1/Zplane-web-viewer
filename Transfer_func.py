@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import math
+from all_pass import all_filter
 
 class zplane():
     points=[[],[]]
@@ -23,12 +24,17 @@ class zplane():
                     tf = tf * z
                 elif j== 1:
                     tf = tf / z
-        return zplane().w,np.abs(tf),np.angle(tf)
+        return tf , zplane().w,np.abs(tf),np.angle(tf)
 
 zplane().phase(1,0,[-1+0j])
-x,y1,y2=zplane().phase(1,1,[1.25+0j])
-plt.plot(x,y1)
-plt.plot(x,y2)
+tf,w,y1,y2=zplane().phase(1,1,[1.25+0j])
+z1,z2 = all_filter(0.7,tf,w)
+# plt.plot(w,z1)
+# plt.plot(w,z2)
+# plt.show()
+plt.plot(w,y1)
+plt.plot(w,y2)
+plt.plot(w,z2)
 plt.show()
 
 #zplane().phase(0,[-1-0j])
