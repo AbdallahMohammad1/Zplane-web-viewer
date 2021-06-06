@@ -5,10 +5,10 @@ from all_pass import all_filter
 
 class zplane():
     points=[[],[]]
-    w = np.arange(-180, 180, 1)
+    w = np.arange(0, 180, 1)
     def phase(self,operation,type,point):
         tf=[]
-        for i in range(0,360):
+        for i in range(0,180):
             tf.append(1)
         if operation == 0:
             for i in range(len(zplane().points[type])):
@@ -24,18 +24,25 @@ class zplane():
                     tf = tf * z
                 elif j== 1:
                     tf = tf / z
-        return tf , zplane().w,np.abs(tf),np.angle(tf)
+        return tf, zplane().w,np.abs(tf),np.angle(tf)
 
-zplane().phase(1,0,[-1+0j])
-tf,w,y1,y2=zplane().phase(1,1,[1.25+0j])
-z1,z2 = all_filter(0.7,tf,w)
-# plt.plot(w,z1)
+# zplane().phase(1,0,[-1+0j])
+# tf,w,y1,y2=zplane().phase(1,1,[1.25+0j])
+# z1,z2 = all_filter(0.7,tf,w)
+# # plt.plot(w,z1)
+# # plt.plot(w,z2)
+# # plt.show()
+# plt.plot(w,y1)
+# plt.plot(w,y2)
 # plt.plot(w,z2)
 # plt.show()
-plt.plot(w,y1)
-plt.plot(w,y2)
-plt.plot(w,z2)
-plt.show()
+# x,y,z = zplane().phase(1,0,[0.5+0.866j])
+# x,y,z = zplane().phase(1,0,[0.5-0.866j])
+# x,y,z = zplane().phase(1,0,[0+1j])
+# plt.plot(x,y)
+# plt.plot(x,z)
+# plt.show()
+
 
 #zplane().phase(0,[-1-0j])
 

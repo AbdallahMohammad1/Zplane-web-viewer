@@ -1,5 +1,7 @@
 from flask import Flask, render_template ,request,url_for,redirect,session #import flask class
 from scipy.interpolate import interp1d
+import matplotlib.pyplot as plt
+from Transfer_func import zplane
 # m = interp1d([485,1020],[-1,1])
 # n = interp1d([265,800],[-1,1])
 m = interp1d([435,1085],[-1.5,1.5])
@@ -10,13 +12,14 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 app.config['SECRET_KEY'] = "secret"
 
 
-# @app.route('/pole',methods= ['POST','GET'])
-# def zero_pole():
-#     if request.method == 'POST':
-#             status      = request.form['pole_zero']
-#     return render_template('main.html',status =[status])
+@app.route('/pole',methods= ['POST','GET'])
+def zero_pole():
+    if request.method == 'POST':
+            status      = request.form['pole_zero']
+    return render_template('main.html',status =[status])
 @app.route('/',methods= ['POST','GET'])
 def index():
+    global x,y,z,tf
     if request.method == 'POST':
             countP      = int(request.form['hidden_countP'])
             countZ      = int(request.form['hidden_countZ'])
@@ -24,7 +27,8 @@ def index():
             print(countZ)
             # locPx        = request.form['locPx1']
             locPx        =request.form['locPx'+ str("1")]
-            print (locPx)
+            # locZx        =request.form['locZx'+ str("1")]
+            # print (locPx)
             for i in range (1,countP+1):
                 print("htis is i ",i)
                 # locZx        = int(request.form['locZx' + i])
@@ -39,6 +43,8 @@ def index():
                 locationPy   = n(locPy+ i)
                 # print(locationZx)
                 # print(locationZy)
+                tf,x,y,z = zplane().phase(1,1,[locationPx+locationPy*1j])
+
                 print(locationPx)
                 print(locationPy)
             for i in range (1,countZ+1):
@@ -53,10 +59,17 @@ def index():
                 locationZy   = n(locZy+ i)
                 # locationPx   = m(locPx+ i)
                 # locationPy   = n(locPy+ i)
+                tf,x,y,z = zplane().phase(1,0,[locationZx+locationZy*1j])
                 print(locationZx)
                 print(locationZy)
                 # print(locationPx)
                 # print(locationPy)
+            # print(x)
+            # print(y)
+            # print(z)
+            # print(tf)
+            return redirect(url_for("home"))
+            # render_template('home.html' , x = x, y= y , url = "/plot.png")
             # status      = request.form['pole_zero']
             # countP        = request.form['count1']
             # countZ        = request.form['count2']
@@ -86,7 +99,11 @@ def index():
             # print(locationsZX)
             # print(locationsZY)
     return render_template('main.html')
-
+@app.route('/home', methods=['GET', 'POST'])
+def home(): 
+    print(len(x))
+    print(len(y))
+    return render_template('home.html' , x = x, y= y ,z =z)
 #     if request.method == 'POST':
 #             countP        = request.form['count1']
 #             countZ        = request.form['count2']
@@ -107,7 +124,7 @@ def index():
 #             # print(locationy2)
 #             print(countP)
 #             print(countZ)
-    return render_template('main.html')
+# return render_template('main.html')
 
 
 

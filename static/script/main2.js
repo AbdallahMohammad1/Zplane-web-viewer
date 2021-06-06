@@ -24,8 +24,8 @@ $(document).on('click','#addPole',function(e){
             console.log((".x"+countP+""))
             console.log(input)
             // $("#hiddenZero").val(countZ)
-            $("#hiddenPx").after('<input class='+"hiddenPx"+countP+' " type="hidden" value = "0"  name='+"locZx"+countP+'>')
-            $("#hiddenPy").after('<input class='+"hiddenPy"+countP+' " type="hidden" value = "0"  name='+"locZy"+countP+'>')
+            $("#hiddenPx").after('<input class='+"hiddenPx"+countP+' " type="hidden" value = "0"  name='+"locPx"+countP+'>')
+            $("#hiddenPy").after('<input class='+"hiddenPy"+countP+' " type="hidden" value = "0"  name='+"locPy"+countP+'>')
             $(".hiddenPx"+countP+"").val(p.pageX);
             $(".hiddenPy"+countP+"").val(p.pageY);
             console.log("#hiddenPx"+countP+"")
@@ -71,8 +71,8 @@ $(document).on('click','#addZero',function(e){
                     });
             console.log((".circle"+countZ+""))
             // $("#hiddenZero").val(countZ)
-            $("#hiddenZx").after('<input class='+"hiddenZx"+countZ+' " type="hidden" value="0" name='+"locPx"+countZ+'>')
-            $("#hiddenZy").after('<input class='+"hiddenZy"+countZ+' " type="hidden" value="0" name='+"locPy"+countZ+'>')
+            $("#hiddenZx").after('<input class='+"hiddenZx"+countZ+' " type="hidden" value="0" name='+"locZx"+countZ+'>')
+            $("#hiddenZy").after('<input class='+"hiddenZy"+countZ+' " type="hidden" value="0" name='+"locZy"+countZ+'>')
             $(".hiddenZx"+countZ).val(z.pageX);
             $(".hiddenZy"+countZ).val(z.pageY);
             console.log("after" + countZ)
