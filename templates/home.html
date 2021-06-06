@@ -6,31 +6,178 @@
   <title>Digital Filter</title>
   <!-- chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../static/script/d3/d3.js"></script>
+<script src="../static/script/Zplane.js"></script>
+
 </head>
 <body>
+    <script tpye = "text/javascript">
+        let v = new Zplane(400,400);
+
+        v.plot_axis();
+
+        v.add_point({{points[0]}},v.types.nonConjZero)
+
+        v.add_point({{points[1]}},v.types.conjZero)
+
+        v.add_point({{points[2]}},v.types.nonConjPole)
+
+        v.add_point({{points[3]}},v.types.conjPole)
+        
+        console.log(v.dataSet)
+        
+    </script>
+     <form method="POST">
+        {{ form_2.hidden_tag() }}
+    
+        <div class="row mb-3">
+    
+        {{form_2.zero.label(class="col-sm-3 col-form-label")}}
+    
+          <div class="col-sm-10">
+    
+            {{ form_2.zero() }}
+    
+            </div>
+            </div>
+
+            <div class="row mb-3">
+
+                {{form_2.conj_zero.label(class="col-sm-3 col-form-label")}}
+            
+                    <div class="col-sm-10">
+            
+                    {{ form_2.conj_zero() }}
+            
+                    </div>
+                    </div>
+
+            <div class="row mb-3">
+
+                {{form_2.pole.label(class="col-sm-3 col-form-label")}}
+            
+                    <div class="col-sm-10">
+            
+                    {{ form_2.pole() }}
+            
+                    </div>
+                    </div>
+            
+    
+            <div class="row mb-3">
+    
+            {{form_2.conj_pole.label(class="col-sm-3 col-form-label")}}
+        
+                <div class="col-sm-10">
+        
+                {{ form_2.conj_pole() }}
+        
+                </div>
+                </div>
+    
+                <br>
+                {{ form_2.add( class="btn btn-outline-primary btn-color") }}
+    
+    </form>
+
     <canvas id="myChart" width="900" height="400"></canvas>
     <script>
     var ctx = document.getElementById('myChart');
-    var myChart = new Chart(ctx, {
+    var abs = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: {{x | safe}},
+            labels: {{x}},
             datasets: [{
-                label: '# of Votes',
-                data: {{y | safe}},
+                label: 'Magnitude Responce',
+                data: {{y}},
+
                 borderColor: [
                     'rgba(75, 172, 172, 1)'
                 ],
                 lineTension: 0.1
 
+            },
+            {
+                label: 'Phase Responce',
+                data: {{z}},
+
+                borderColor: [
+                    'rgba(75, 75, 75, 1)'
+                ],
+                lineTension: 0.1
+
             }]
-            
         },
         options: {
             responsive: false
             }
     });
+
     </script>
+ <form method="POST">
+    {{ form.hidden_tag() }}
+
+    <div class="row mb-3">
+
+    {{form.filter_lib.label(class="col-sm-3 col-form-label")}}
+
+      <div class="col-sm-10">
+
+        {{ form.filter_lib() }}
+
+        </div>
+        </div>
+
+        <div class="row mb-3">
+
+        {{form.filter_cust.label(class="col-sm-3 col-form-label")}}
     
+            <div class="col-sm-10">
+    
+            {{ form.filter_cust() }}
+    
+            </div>
+            </div>
+
+            <br>
+            {{ form.correct( class="btn btn-outline-primary btn-color") }}
+
+</form>
+<canvas id="myChart_1" width="900" height="400"></canvas>
+<script>
+var ctx = document.getElementById('myChart_1');
+var abs = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: {{x}},
+        datasets: [{
+            label: 'Magnitude Responce',
+            data: {{z1}},
+
+            borderColor: [
+                'rgba(75, 172, 172, 1)'
+            ],
+            lineTension: 0.1
+
+        } ,
+
+        {
+            label: 'Corrected Phase Responce',
+            data: {{z2}},
+
+            borderColor: [
+                'rgba(75, 75, 75, 1)'
+            ],
+            lineTension: 0.1
+
+        }]
+    },
+    options: {
+        responsive: false
+        }
+});
+
+</script>
+
 </body>
 </html>

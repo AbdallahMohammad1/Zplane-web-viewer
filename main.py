@@ -68,7 +68,7 @@ def index():
             # print(y)
             # print(z)
             # print(tf)
-            return redirect(url_for("home"))
+            # return redirect(url_for("home"))
             # render_template('home.html' , x = x, y= y , url = "/plot.png")
             # status      = request.form['pole_zero']
             # countP        = request.form['count1']
@@ -99,11 +99,11 @@ def index():
             # print(locationsZX)
             # print(locationsZY)
     return render_template('main.html')
-@app.route('/home', methods=['GET', 'POST'])
-def home(): 
-    print(len(x))
-    print(len(y))
-    return render_template('home.html' , x = x, y= y ,z =z)
+# @app.route('/home', methods=['GET', 'POST'])
+# def home(): 
+#     print(len(x))
+#     print(len(y))
+#     return render_template('home.html' , x = list(x), y= list(y) ,z =z)
 #     if request.method == 'POST':
 #             countP        = request.form['count1']
 #             countZ        = request.form['count2']

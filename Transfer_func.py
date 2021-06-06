@@ -28,7 +28,6 @@ class zplane():
 
 # zplane().phase(1,0,[-1+0j])
 # tf,w,y1,y2=zplane().phase(1,1,[1.25+0j])
-# z1,z2 = all_filter(0.7,tf,w)
 # # plt.plot(w,z1)
 # # plt.plot(w,z2)
 # # plt.show()
@@ -36,11 +35,12 @@ class zplane():
 # plt.plot(w,y2)
 # plt.plot(w,z2)
 # plt.show()
-# x,y,z = zplane().phase(1,0,[0.5+0.866j])
+tf,x,y,z = zplane().phase(1,0,[0.7+0.7j])
+# z1,z2 = all_filter(0.7,tf,x)
 # x,y,z = zplane().phase(1,0,[0.5-0.866j])
 # x,y,z = zplane().phase(1,0,[0+1j])
 # plt.plot(x,y)
-# plt.plot(x,z)
+# plt.plot(x,z2)
 # plt.show()
 
 
