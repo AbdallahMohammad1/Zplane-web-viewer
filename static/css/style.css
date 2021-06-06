@@ -3,10 +3,21 @@
 }
 body{
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(90deg, #4c91cc ,#a5409a ,#6d109c);
+    background: linear-gradient(
+        90deg
+        , #4cb0cc ,#dfd0dd ,#fdfdfd);}
+.body2{
+    background: linear-gradient(
+        90deg
+        , #4cb0cc ,#dfd0dd ,#fdfdfd);
+}
+canvas{
+    background: white;
+    margin-top: 40px;
+    border-radius: 10px;
 }
 h1{
-    color:  red;
+    color:  black;
     margin: auto;
     margin: 20px 0;
 }
@@ -26,6 +37,9 @@ h1{
     display: none;
     border:3px solid black;
     border-radius: 50%;
+}
+.z_plane{
+    color: white;
 }
 .x ,.x2,.pole{
     font-size: 5vh;
