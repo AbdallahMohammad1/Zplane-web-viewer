@@ -4,7 +4,6 @@
 body{
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(90deg, #4c91cc ,#a5409a ,#6d109c);
-    /* height: 200vh; */
 }
 h1{
     color:  red;
@@ -42,6 +41,7 @@ h1{
 }
 .allPoles,.allZeros{
     cursor: pointer;
+    position: absolute;
 }
 /* .hidden{
     display: none;
