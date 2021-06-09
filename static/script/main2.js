@@ -120,8 +120,8 @@ $(document).on('click','#addPole',function(e){
                         countCP =countCP -1;
                     });
                 });
+                conjugate = 0
                 }  
-                
         });
 });
 $(document).on('click','#addZero',function(e){
@@ -165,7 +165,7 @@ $(document).on('click','#addZero',function(e){
             });
             }  
             else if(conjugate ==1 && input == 0 ){
-                countCP ++
+                countCZ ++
                 $(".circle").after(        '<div class='+'"allZeros hidden cir '+ 'ccircle'+countCZ+'"></div>'    )
                 $(".ccircle"+countCZ+"").css("display", "block").offset({  //offset bt77dle el div hyzhr fen
                     left: z.pageX  ,
@@ -226,8 +226,8 @@ $(document).on('click','#addZero',function(e){
                         countCZ =countCZ -1;
                     });
                 });
+                conjugate = 0
                 }  
-                
         });
 });
 $("form").submit(function(e){
@@ -247,7 +247,6 @@ $("form").submit(function(e){
 
 $(document).on('click','#deleteZeros',function(e){
     console.log("delete_zeros")
-    console.log(allPoles)
     console.log(allZeros)
     $( ".allZeros" ).remove();
     countZ = 0;

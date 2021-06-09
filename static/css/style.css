@@ -15,6 +15,7 @@ canvas{
     background: white;
     margin-top: 40px;
     border-radius: 10px;
+    margin-bottom: 30px;
 }
 h1{
     color:  black;
@@ -39,7 +40,11 @@ h1{
     border-radius: 50%;
 }
 .z_plane{
+    margin-top: 20px;
+}
+.z_plane a{
     color: white;
+    text-decoration: none;
 }
 .x ,.x2,.pole{
     font-size: 5vh;

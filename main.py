@@ -30,8 +30,8 @@ def index():
             countCP      = int(request.form['hidden_countCP'])
             countCZ      = int(request.form['hidden_countCZ'])
 
-            # print(countP)
-            # print(countZ)
+            print(countP +countCP)
+            print(countZ +countCZ)
             # locPx        = request.form['locPx1']
             # locPx        =request.form['locPx'+ str("1")]
             # locZx        =request.form['locZx'+ str("1")]
