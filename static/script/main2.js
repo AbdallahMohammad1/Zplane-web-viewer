@@ -18,6 +18,22 @@ $(last_div).unbind()
     conjugate = 1
     console.log("2kdkdkk")
 });
+$(document).on('click','#uCircle',function(){
+    var Ucircle =  $("#uCircle").offset();
+    var bottom = Ucircle.top + $('#uCircle').outerHeight();
+    var right = Ucircle.left + $('#uCircle').outerWidth();
+    console.log("ucircle.top" + Ucircle.top)
+    console.log("ucircle.left" + Ucircle.left)
+    console.log("ucircle.bottom" +bottom)
+    console.log("ucircle.right" + right)
+    $("#top").val(Ucircle.top);
+    $("#bottom").val(bottom);
+    $("#left").val(Ucircle.left);
+    $("#right").val(right);
+});
+
+
+
 $(document).on('click','#addPole',function(e){
     // $("#uCircle").addClass("active")
     countP= countP+1;
@@ -142,7 +158,7 @@ $(document).on('click','#addZero',function(e){
                     left: z.pageX  ,
                     top: z.pageY 
                 });
-            console.log((".ccircle"+countCZ+""))
+                
             console.log(input)
             // $("#hiddenZero").val(countZ)
             $("#hiddenZx").after('<input class='+"hiddenZx"+countCZ+' " type="hidden" value = "0"  name='+"locZx"+countCZ+'>')

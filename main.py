@@ -7,27 +7,33 @@ from flask_wtf import FlaskForm
 import numpy as np
 from all_pass import all_filter
 
-m = interp1d([435,1085],[-1.5,1.5])
-n = interp1d([221,837],[-1.5,1.5])
+
 
 app = Flask(__name__) 
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 app.config['SECRET_KEY'] = "secret"
 
 
-@app.route('/pole',methods= ['POST','GET'])
-def zero_pole():
-    if request.method == 'POST':
-            status      = request.form['pole_zero']
-    return render_template('main.html',status =[status])
+
 @app.route('/',methods= ['POST','GET'])
 def index():
     global x,y,z,tf
     if request.method == 'POST':
-            countP      = int(request.form['hidden_countP'])
-            countZ      = int(request.form['hidden_countZ'])
+            countP       = int(request.form['hidden_countP'])
+            countZ       = int(request.form['hidden_countZ'])
             countCP      = int(request.form['hidden_countCP'])
             countCZ      = int(request.form['hidden_countCZ'])
+            top          = int(float(request.form['top']))
+            right        = int(float(request.form['right']))
+            bottom       = int(float(request.form['bottom']))
+            left         = int(float(request.form['left']))
+
+            m = interp1d([left,right],[-1.5,1.5])
+            n = interp1d([top,bottom],[-1.5,1.5])
+            # print(top)
+            # print(right)
+            # print(bottom)
+            # print(left)
 
             print(countP +countCP)
             print(countZ +countCZ)
@@ -38,12 +44,9 @@ def index():
             try:
                 for i in range (1,countP+countCP+1):
                     print("htis is i ",i)
-                    # locZx        = int(request.form['locZx' + i])
-                    # locZy        = int(request.form['locZy'+ i])
                     locPx        = int(request.form['locPx'+ str(i)])
                     locPy        = int(request.form['locPy'+ str(i)])
-                    # print(locPx)
-                    # print(locPy)
+                    
                     locationPx   = m(locPx+ i)
                     locationPy   = n(locPy+ i)
                     tf,x,y,z = zplane().phase(1,1,[locationPx-locationPy*1j])
@@ -53,7 +56,7 @@ def index():
                     print(-locationPy)
                     print(x)
                     print(y)
-                    print(i)
+                    # print(i)
             except Exception: 
                 print(Exception)
                 pass
@@ -66,8 +69,6 @@ def index():
                     # print(locZy)
                     locationZx   = m(locZx+ i)
                     locationZy   = n(locZy+ i)
-                    # locationPx   = m(locPx+ i)
-                    # locationPy   = n(locPy+ i)
                     print(i)
                     tf,x,y,z = zplane().phase(1,0,[locationZx-locationZy*1j])
                     print(locationZx)
