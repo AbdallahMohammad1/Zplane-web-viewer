@@ -3,7 +3,7 @@ var countZ = 0 ;
 var input =1;
 var last_div = "";
 var conjugate = 0;
-var circle_centerY =525;
+var circle_centerY =532;
 var countCP = 0
 var countCZ = 0
 
@@ -42,14 +42,7 @@ $(document).on('click','#addPole',function(e){
             $(".hiddenPy"+countP+"").val(p.pageY);
             console.log("#hiddenPx"+countP+"")
             allPoles = $( ".allPoles" ).length;
-            // console.log(countP)
-            // for (i = 1; i < CountP+1; i++) {
-            //     $('.x'+i+'').click(function(){
-            //         console.log(22)
-            //         $(this).remove()
-            //         countP =countP -1;
-            //     });
-            // }
+            
             $( ".allPoles" ).each(function() {
                 $(this).on("click", function(){
                     console.log(22)
@@ -75,14 +68,6 @@ $(document).on('click','#addPole',function(e){
             console.log("#hiddenPx"+countCP+"")
             console.log("dllssllw")
             allPoles = $( ".allPoles" ).length;
-            // console.log(countP)
-            // for (i = 1; i < CountP+1; i++) {
-            //     $('.x'+i+'').click(function(){
-            //         console.log(22)
-            //         $(this).remove()
-            //         countP =countP -1;
-            //     });
-            // }
             $( ".allPoles" ).each(function() {
                 $(this).on("click", function(){
                     console.log(22)
@@ -94,25 +79,18 @@ $(document).on('click','#addPole',function(e){
         $(".x").after(        '<div class='+'"allPoles hidden pole '+ 'cx'+countCP+'">x</div>'    )
         $(".cx"+countCP+"").css("display", "block").offset({  //offset bt77dle el div hyzhr fen
             left: p.pageX-5  ,
-            top: circle_centerY -(p.pageY-circle_centerY) 
+            top: (circle_centerY -(p.pageY-circle_centerY))-30
         });
                 console.log((".cx"+countCP+""))
                 console.log(input)
                 // $("#hiddenZero").val(countZ)
-                $("#hiddenPx").after('<input class='+"hiddenPx"+countP+' " type="hidden" value = "0"  name='+"locPx"+countCP+'>')
-                $("#hiddenPy").after('<input class='+"hiddenPy"+countP+' " type="hidden" value = "0"  name='+"locPy"+countCP+'>')
+                $("#hiddenPx").after('<input class='+"hiddenPx"+countCP+' " type="hidden" value = "0"  name='+"locPx"+countCP+'>')
+                $("#hiddenPy").after('<input class='+"hiddenPy"+countCP+' " type="hidden" value = "0"  name='+"locPy"+countCP+'>')
                 $(".hiddenPx"+countCP+"").val(p.pageX);
-                $(".hiddenPy"+countCP+"").val(p.pageY);
+                $(".hiddenPy"+countCP+"").val(circle_centerY -(p.pageY-circle_centerY));
                 console.log("#hiddenPx"+countCP+"")
                 allPoles = $( ".allPoles" ).length;
-                // console.log(countP)
-                // for (i = 1; i < CountP+1; i++) {
-                //     $('.x'+i+'').click(function(){
-                //         console.log(22)
-                //         $(this).remove()
-                //         countP =countP -1;
-                //     });
-                // }
+                
                 $( ".allPoles" ).each(function() {
                     $(this).on("click", function(){
                         console.log(22)
@@ -148,14 +126,7 @@ $(document).on('click','#addZero',function(e){
             $(".hiddenZy"+countZ+"").val(z.pageY);
             console.log("#hiddenZx"+countZ+"")
             allZeros = $( ".allZeros" ).length;
-            // console.log(countP)
-            // for (i = 1; i < CountP+1; i++) {
-            //     $('.x'+i+'').click(function(){
-            //         console.log(22)
-            //         $(this).remove()
-            //         countP =countP -1;
-            //     });
-            // }
+            
             $( ".allZeros" ).each(function() {
                 $(this).on("click", function(){
                     console.log(23)
@@ -181,14 +152,6 @@ $(document).on('click','#addZero',function(e){
             console.log("#hiddenZx"+countCZ+"")
             console.log("dllssllw")
             allZeros = $( ".allZeros" ).length;
-            // console.log(countP)
-            // for (i = 1; i < CountP+1; i++) {
-            //     $('.x'+i+'').click(function(){
-            //         console.log(22)
-            //         $(this).remove()
-            //         countP =countP -1;
-            //     });
-            // }
             $( ".allZeros" ).each(function() {
                 $(this).on("click", function(){
                     console.log(22)
@@ -200,7 +163,7 @@ $(document).on('click','#addZero',function(e){
         $(".circle").after(        '<div class='+'"allZeros hidden cir '+ 'ccircle'+countCZ+'"></div>'    )
         $(".ccircle"+countCZ+"").css("display", "block").offset({  //offset bt77dle el div hyzhr fen
             left: z.pageX  ,
-            top: circle_centerY -(z.pageY-circle_centerY) 
+            top: (circle_centerY -(z.pageY-circle_centerY)) -10
         });
                 console.log((".ccircle"+countCZ+""))
                 console.log(input)
@@ -208,17 +171,9 @@ $(document).on('click','#addZero',function(e){
                 $("#hiddenZx").after('<input class='+"hiddenZx"+countCZ+' " type="hidden" value = "0"  name='+"locZx"+countCZ+'>')
                 $("#hiddenZy").after('<input class='+"hiddenZy"+countCZ+' " type="hidden" value = "0"  name='+"locZy"+countCZ+'>')
                 $(".hiddenZx"+countCZ+"").val(z.pageX);
-                $(".hiddenZy"+countCZ+"").val(z.pageY);
+                $(".hiddenZy"+countCZ+"").val(circle_centerY -(z.pageY-circle_centerY));
                 console.log("#hiddenZx"+countCP+"")
                 allZeros = $( ".allZeros" ).length;
-                // console.log(countP)
-                // for (i = 1; i < CountP+1; i++) {
-                //     $('.x'+i+'').click(function(){
-                //         console.log(22)
-                //         $(this).remove()
-                //         countP =countP -1;
-                //     });
-                // }
                 $( ".allZeros" ).each(function() {
                     $(this).on("click", function(){
                         console.log(22)
@@ -236,14 +191,7 @@ $("form").submit(function(e){
     $("#hidden_countCP").val(countCP);
     $("#hidden_countCZ").val(countCZ);
 });
-// all_zeros = $(".allZeros")
-// $("#deleteZeros").on("click" ,function(){
-//     $(all_zeros).unbind()
-// });
-// $("html").click(function(){
-//     allPoles = $( ".allPoles" ).length;
-//     allZeros = $( ".allZeros" ).length;
-// });
+
 
 $(document).on('click','#deleteZeros',function(e){
     console.log("delete_zeros")

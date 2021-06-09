@@ -6,8 +6,7 @@ from wtforms import StringField, SubmitField,SelectField
 from flask_wtf import FlaskForm
 import numpy as np
 from all_pass import all_filter
-# m = interp1d([485,1020],[-1,1])
-# n = interp1d([265,800],[-1,1])
+
 m = interp1d([435,1085],[-1.5,1.5])
 n = interp1d([221,837],[-1.5,1.5])
 
@@ -45,8 +44,6 @@ def index():
                     locPy        = int(request.form['locPy'+ str(i)])
                     # print(locPx)
                     # print(locPy)
-                    # locationZx   = m(locZx+ i)
-                    # locationZy   = n(locZy+ i)
                     locationPx   = m(locPx+ i)
                     locationPy   = n(locPy+ i)
                     tf,x,y,z = zplane().phase(1,1,[locationPx-locationPy*1j])
@@ -54,8 +51,8 @@ def index():
                     # print(locPy)
                     print(locationPx)
                     print(-locationPy)
-                    # print(x)
-                    # print(y)
+                    print(x)
+                    print(y)
                     print(i)
             except Exception: 
                 print(Exception)
@@ -65,8 +62,6 @@ def index():
                     # print("htis is i ",i)
                     locZx        = int(request.form['locZx' + str(i)])
                     locZy        = int(request.form['locZy'+ str(i)])
-                    # locPx        = int(request.form['locPx'+ i])
-                    # locPy        = int(request.form['locPy'+ i])
                     # print(locZx)
                     # print(locZy)
                     locationZx   = m(locZx+ i)
@@ -77,47 +72,13 @@ def index():
                     tf,x,y,z = zplane().phase(1,0,[locationZx-locationZy*1j])
                     print(locationZx)
                     print(-locationZy)
-                    # print(x)
-                    # print(y)
+                    print(x)
+                    print(y)
             except Exception: 
                 print(Exception)
                 pass       
-                # print(locationPx)
-                # print(locationPy)
-            # print(x)
-            # print(y)
-            # print(z)
-            # print(tf)
             return redirect(url_for("home"))
-            # render_template('home.html' , x = x, y= y , url = "/plot.png")
-            # status      = request.form['pole_zero']
-            # countP        = request.form['count1']
-            # countZ        = request.form['count2']
-            # locationsPX = []
-            # locationsPY = []
-            # for i in countP:
-            #     locx        = request.form['locPx'+i]
-            #     locy        = request.form['locPy'+i]
-            #     locationx   = m(locx)
-            #     locationy   = n(locy)
-            #     locationsPX.append(locationx)
-            #     locationsPY.append(locationy)
-            # print(status)
-            # print(locationsPX)
-            # print(locationsPY)
-
-            # locationsZX = []
-            # locationsZY = []
-            # for i in countZ:
-            #     locx        = request.form['locZx'+i]
-            #     locy        = request.form['locZy'+i]
-            #     locationx   = m(locx)
-            #     locationy   = n(locy)
-            #     locationsZX.append(locationx)
-            #     locationsZY.append(locationy)
-            # print(status)
-            # print(locationsZX)
-            # print(locationsZY)
+            
     return render_template('main.html')
 
 class Filter(FlaskForm):
