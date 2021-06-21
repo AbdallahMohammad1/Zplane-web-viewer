@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- , filename='css/backend.css' -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://i.ibb.co/7y12V0s/Logo.png"/>
+    <script src="https://kit.fontawesome.com/be14abca77.js" crossorigin="anonymous"></script>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    
+    <title>Z-Transform</title>
+</head>
+    <div class="container">
+        <h1 class="text-center">Z-Transform</h1>
+        <div class="row">
+            <div class="col-lg-2">
+                <button id="addPole" class="btns btn btn-info">Add Another Pole</button>
+            </div>
+            <div class="col-lg-2">
+                    <button id="addZero" class="btns btn btn-info">Add Another Zero</button>
+            </div>
+            <div class="col-lg-2">
+                <button id="deletePoles" class="btns btn btn-info">delete all poles</button>
+            </div>
+            <div class="col-lg-2">
+                <button id="deleteZeros" class="btns btn btn-info">delete all zeros</button>
+            </div>
+            <div class="col-lg-2">
+                <button id="deleteAll" class="btns btn btn-info">delete all</button>
+            </div>
+            <div class="col-lg-2">
+                <button id="addConjugate" class="btns btn btn-info">Add Conjugate</button>
+            </div>
+        </div>
+        <div class="row p_z">
+            <form action="http://127.0.0.1:5000" method="POST">
+                <div class="row">
+                    <input id="hiddenZx" class="visually-hidden " type="text" value="0" name="locZx">
+                    <input id="hiddenZy" class="visually-hidden " type="text" value="0" name="locZy">
+                    <input id="hiddenPx" class="visually-hidden " type="text" value="0" name="locPx">
+                    <input id="hiddenPy" class="visually-hidden " type="text" value="0" name="locPy">
+                    <input id="hidden_countP" class="visually-hidden " type="text" value="0" name="hidden_countP">
+                    <input id="hidden_countZ" class="visually-hidden " type="text" value="0" name="hidden_countZ">
+                    <input id="hidden_countCP" class="visually-hidden " type="text" value="0" name="hidden_countCP">
+                    <input id="hidden_countCZ" class="visually-hidden " type="text" value="0" name="hidden_countCZ">
+                    <input id="top" class="visually-hidden " type="text" value="0" name="top">
+                    <input id="right" class="visually-hidden " type="text" value="0" name="right">
+                    <input id="bottom" class="visually-hidden " type="text" value="0" name="bottom">
+                    <input id="left" class="visually-hidden " type="text" value="0" name="left">
+
+                    <button type="submit" class="btn btn-sm btn-warning submit">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+                <img id="uCircle" class="rounded" src="{{ url_for('static', filename='images/Circle.png') }}" alt="">
+        </div>
+        <p class="hiden1"></p>
+        <p class="hiden2"></p>
+        <div class="circle"></div>
+        <div class="x">x</div>
+    </div>
+    
+    <!-- <div class="x2">x</div> -->
+    <script src="{{ url_for('static', filename='script/jquery-3.5.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='script/main2.js') }}"></script>
+<body>
+    

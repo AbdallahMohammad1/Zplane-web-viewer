@@ -1,0 +1,67 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(
+        90deg
+        , #4cb0cc ,#dfd0dd ,#fdfdfd);}
+.body2{
+    background: linear-gradient(
+        90deg
+        , #4cb0cc ,#dfd0dd ,#fdfdfd);
+}
+canvas{
+    background: white;
+    margin-top: 40px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+h1{
+    color:  black;
+    margin: auto;
+    margin: 20px 0;
+}
+#uCircle{
+    height: 50%;
+    width: 50%;
+    margin: auto;
+    border: 2px solid rgb(46, 44, 44);
+}
+.p_z{
+    width: 28%;
+    margin: auto;
+}
+.circle,.circle2 ,.cir{
+    width:20px;
+    height:20px;
+    display: none;
+    border:3px solid black;
+    border-radius: 50%;
+}
+h3{
+    margin-top: 20px;
+}
+.z_plane a{
+    color: white;
+    text-decoration: none;
+}
+.x ,.x2,.pole{
+    font-size: 5vh;
+    font-weight: bold;
+    display: none;
+}
+.btns{
+    margin: 20px;
+}
+.submit{
+    margin-left: 470px;
+    margin-bottom: 50px;
+}
+.allPoles,.allZeros{
+    cursor: pointer;
+    position: absolute;
+}
+/* .hidden{
+    display: none;
+} */
