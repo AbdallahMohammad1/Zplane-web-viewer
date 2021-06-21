@@ -1,6 +1,6 @@
 from flask import Flask, render_template ,request,url_for,redirect,session #import flask class
 from scipy.interpolate import interp1d
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from Transfer_func import zplane
 from wtforms import StringField, SubmitField,SelectField
 from flask_wtf import FlaskForm
